@@ -37,3 +37,5 @@ C:\Users\Josh\source\repos\CardDemo\CardDemo\bin\Debug\netcoreapp3.1\Newtonsoft.
 C:\Users\Josh\source\repos\CardDemo\CardDemo\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\Josh\source\repos\CardDemo\CardDemo\obj\Debug\netcoreapp3.1\CardDemo.csproj.AssemblyReference.cache
 C:\Users\Josh\source\repos\CardDemo\CardDemo\obj\Debug\netcoreapp3.1\CardDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Josh\source\repos\CardDemo\CardDemo\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\Josh\source\repos\CardDemo\CardDemo\bin\Debug\netcoreapp3.1\System.Text.Json.dll

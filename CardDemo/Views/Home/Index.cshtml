@@ -9,28 +9,37 @@ Deck Id: @Model.deck_id
 <br />
 Remaining: @Model.remaining
 <br />
-
+<br />
 
 <form method="post" asp-action="Index" asp-route-deckId="@Model.deck_id">
+    <div style="display:flex">
+        @for (int i = 0; i < Model.cards.Count(); i++)
+        {
+            <div>
 
-    @for (int i = 0; i < Model.cards.Count(); i++)
-    {
-        <div>Suit: @Model.cards[i].suit</div>
-        <div>Value: @Model.cards[i].value</div>
-        <div>
-            <img src="@Model.cards[i].image" />
-        </div>
+                <p>@Model.cards[i].value of @Model.cards[i].suit</p>
+                <img src="@Model.cards[i].image" />
 
-        string keepCard = "keep" + i;
-        @* Only passes value back if box is checked *@
-        <input type="checkbox" id="@keepCard" name="keepIndex[]" value="@i" />
-        <label for="@keepCard">Keep Card?</label>
+                @{
+                    string keepCard = "keep" + i;
+                }
+                @* Only passes value back if box is checked *@
+                <input type="checkbox" id="@keepCard" name="keepList[]" value="@i" />
+                <label for="@keepCard">Keep Card?</label>
 
-        @* Passing card information in the body of the form*@
-        <input type="hidden" name="hand[@i].suit" value="@Model.cards[i].suit" />
-        <input type="hidden" name="hand[@i].value" value="@Model.cards[i].value" />
-        <input type="hidden" name="hand[@i].image" value="@Model.cards[i].image" />
-    }
+            </div>
+            @* Passing card information in the body of the form*@
+            <input type="hidden" name="hand[@i].suit" value="@Model.cards[i].suit" />
+            <input type="hidden" name="hand[@i].value" value="@Model.cards[i].value" />
+            <input type="hidden" name="hand[@i].image" value="@Model.cards[i].image" />
+        }
+    </div>
     <br />
     <input type="submit" value="Draw more cards" />
 </form>
+<br />
+@if (Model.remaining < 5)
+{
+    <p>Your deck is almost out, click below to shuffle the deck and start again.</p>
+    <a asp-action="Shuffle" asp-controller="Home" asp-route-deckId="@Model.deck_id">Shuffle Deck</a>
+}
